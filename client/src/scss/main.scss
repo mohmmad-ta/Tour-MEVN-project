@@ -1,0 +1,16 @@
+@import "scssFile/_nav.scss";
+@import "scssFile/_home.scss";
+@import "scssFile/_var.scss";
+@import "scssFile/_footer.scss";
+@import "scssFile/_distination.scss";
+@import "scssFile/_contact.scss";
+@import "scssFile/_registr.scss";
+@import "scssFile/_showTour.scss";
+
+body {
+  background: $mainColor;
+  font-family: 'Lato', sans-serif !important;
+  scroll-behavior: smooth;
+  a{text-decoration: none;}
+}
+

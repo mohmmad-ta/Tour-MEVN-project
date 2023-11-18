@@ -1,0 +1,165 @@
+@import "./_var.scss";
+
+
+.bg-box-product {
+  background: rgba(24, 27, 30, 0.2);
+  padding: 20px 40px 20px 10px;
+  margin: 40px 0;
+  border-radius: 10px;
+}
+
+.slid-product {
+  height: 670px;
+  overflow: hidden;
+  border-radius: 10px;
+  padding: 20px;
+
+  .slide {
+    .carousel-indicators {
+      opacity: 1 !important;
+
+      button {
+        width: 100%;
+        box-sizing: border-box;
+
+        img {
+          opacity: 9;
+          margin-top: 50px;
+          width: 100px;
+          height: 100px;
+          display: block;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  .carousel-item {
+    padding: 0 70px;
+
+    .img-slid {
+      width: 100%;
+      height: 500px !important;
+      display: block;
+      border-radius: 25px;
+      padding: 20px;
+    }
+  }
+}
+
+.text-product {
+  padding: 45px 20px 45px 85px;
+  color: #fff;
+
+  h2 {
+    color: $mainColor2;
+    font-size: 2.1rem;
+    font-weight: bold;
+    margin: 10px 0 30px 0;
+  }
+
+  span {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #bababa;
+  }
+
+  p {
+    margin: 5px 0 20px 0;
+    color: #aab8c2;
+    font-size: 18px;
+  }
+
+  .add-prod {
+    margin-top: 80px;
+    display: flex;
+
+    input {
+      width: 100px;
+      border-radius: 5px;
+      background: #e1e8ed;
+      padding: 0 10px;
+      margin-left: 10px;
+      outline: none;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin: -5px 0 20px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .bg-box-product {
+    background: rgba(24, 27, 30, 0.2);
+    padding: 15px 10px;
+    margin: 70px 0;
+    border-radius: 10px;
+  }
+
+  .slid-product {
+    padding: 0;
+
+    .slide {
+      .carousel-indicators {
+        button {
+          img {
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
+    }
+
+    .carousel-item {
+      padding: 0;
+
+      .img-slid {
+        width: 100%;
+        height: 500px !important;
+        display: block;
+        border-radius: 10px;
+        padding: 0;
+      }
+    }
+  }
+
+  .text-product {
+    padding: 30px 5px;
+
+    h2 {
+      font-size: 1.7rem;
+    }
+
+    span {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    .add-prod {
+      margin-top: 80px;
+      display: flex;
+
+      input {
+        width: 100px;
+        border-radius: 5px;
+        background: #e1e8ed;
+        padding: 0 10px;
+        margin-left: 10px;
+        outline: none;
+      }
+
+      button {
+        padding: 10px 0;
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

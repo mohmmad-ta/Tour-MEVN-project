@@ -1,0 +1,71 @@
+@import "./_var.scss";
+
+.get-in-touch {
+  max-width: 800px;
+  padding: 140px 20px 0;
+  height: 100vh;
+  .title{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .contact-form{
+    .form-field {
+      position: relative;
+      margin: 32px 0;
+    }
+    .input-text {
+      background: none;
+      color: #fff;
+      display: block;
+      width: 100%;
+      height: 36px;
+      border-width: 0 0 2px 0;
+      border-color: $mainColor2;
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 400;
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .label {
+      position: absolute;
+      left: 20px;
+      bottom: 11px;
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 400;
+      color: $mainColor2;
+      cursor: text;
+      transition: transform .2s ease-in-out;
+    }
+    .submit-btn {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 16px;
+      padding: 8px 20px;
+      transition: 0.35s;
+      font-weight: bold;
+      color: $mainColor2;
+      border: 1.5px solid $mainColor2;
+      &:hover{
+        color: $mainColor2;
+      }
+    }
+  }
+}
+.input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+  transform: translateY(-24px);
+}
+@media only screen and (max-width: 750px) {
+  .get-in-touch {
+    padding: 100px 20px 0;
+    .title {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+  }
+}

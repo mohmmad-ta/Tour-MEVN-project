@@ -1,0 +1,349 @@
+@import "./_var.scss";
+
+.homePage{
+  font-family: sans-serif;
+  height: 100vh;
+  position: relative;
+  overflow: hidden !important;
+  .bgA{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+  .bgb{
+    position: absolute;
+    width: 100%;
+    height: 40vh;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+  }
+  .over{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    background: linear-gradient(to top, #080b1c, rgba(8, 11, 28, 0.85), rgba(8, 11, 28, 0.5), rgba(8, 11, 28, 0.3), rgba(8, 11, 28, 0));
+  }
+  .textHeader{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    margin-top: 35vh;
+    text-shadow: 7px 5px 2px #444;
+    z-index: 11;
+    h1{
+      font-size: 4rem;
+      color: #fff;
+      font-weight: bold;
+      font-family: cursive;
+    }
+  }
+}
+
+.homePage2{
+  background: $mainColor;
+  width: 100%;
+  padding: 50px 0 150px;
+  .textBox{
+    padding: 20px 15px 0 10px;
+    margin-bottom: 15px;
+    h2{
+      font-family: cursive;
+      font-size: 3rem;
+      color: #fff;
+      margin: 15px 1px;
+    }
+    p{
+      font-size: 1.1rem;
+      color: #888;
+      margin-top: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .homePage{
+    .textHeader{
+      margin-top: 28vh;
+      h1{
+        font-size: 3.3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .homePage{
+    height: 90vh;
+    .bgA{
+      width: 170%;
+    }
+    .bgb{
+      width: 110%;
+      height: 35vh;
+    }
+    .over{
+      height: 90vh;
+      background: linear-gradient(to top, #080b1c, rgba(8, 11, 28, 0.8), rgba(8, 11, 28, 0.6), rgba(8, 11, 28, 0.25), rgba(8, 11, 28, 0));
+    }
+    .textHeader{
+      margin-top: 28vh;
+      h1{
+        font-size: 2.2rem;
+      }
+    }
+  }
+
+  .homePage2{
+    padding: 10px 0 50px;
+    .textBox{
+      padding: 20px;
+      margin-bottom: 15px;
+      h2{
+        font-family: cursive;
+        font-size: 3rem;
+        color: #fff;
+        margin: 15px 1px;
+      }
+      p{
+        font-size: 1.1rem;
+        color: #888;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+
+
+// ======= list cards ==========
+
+.options {
+  display:flex;
+  overflow:hidden;
+  min-width:600px;
+  max-width:900px;
+  width: 100%;
+
+  height:400px;
+
+  @for $i from 1 through 4 {
+    @media screen and (max-width:798px - $i*80) {
+      min-width:600px - $i*80;
+      .option:nth-child(#{6-$i}) {
+        display:none;
+      }
+    }
+  }
+
+  .option {
+    position: relative;
+    overflow:hidden;
+    min-width:60px;
+    margin:10px;
+    background-size:auto 120%;
+    background-position:center;
+    cursor: pointer;
+
+    transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+
+    @for $i from 1 through length($optionDefaultColours) {
+      &:nth-child(#{$i}) {
+        --defaultBackground:#{nth($optionDefaultColours, $i)};
+      }
+    }
+    &.active {
+      flex-grow:10000;
+      transform:scale(1);
+
+      max-width:600px;
+      margin:0px;
+      border-radius:40px;
+
+      background-size:auto 100%;
+      .shadow {
+        box-shadow:inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+      }
+      .label {
+        bottom:20px;
+        left:20px;
+        .info >div {
+          left:0px;
+          opacity:1;
+        }
+      }
+      &:active {
+         transform:scale(0.9);
+      }
+    }
+    &:not(.active) {
+      flex-grow:1;
+
+      border-radius:30px;
+      .shadow {
+        bottom:-40px;
+        box-shadow:inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+      }
+      .label {
+        bottom:10px;
+        left:10px;
+        .info >div {
+          left:20px;
+          opacity:0;
+        }
+      }
+    }
+    .shadow {
+      position: absolute;
+      bottom:0px;
+      left:0px;
+      right:0px;
+      height:120px;
+      transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+    }
+    .label {
+      display:flex;
+      position: absolute;
+      right:0px;
+
+      height:40px;
+      transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+      .icon {
+        display:flex;
+        flex-direction:row;
+        justify-content:center;
+        align-items:center;
+
+        min-width:40px;
+        max-width:40px;
+        height:40px;
+        border-radius:100%;
+
+        background-color:white;
+        color:var(--defaultBackground);
+      }
+      .info {
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+
+        margin-left:10px;
+        color:white;
+        white-space: pre;
+        >div {
+          position: relative;
+          transition:.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity .5s ease-out;
+        }
+        .main {
+          font-weight:bold;
+          font-size:1.2rem;
+        }
+        .sub {
+          transition-delay:.1s;
+        }
+      }
+    }
+  }
+}
+.btnListCard{
+  display: none;
+  a{
+    color: #fff;
+    padding: 11px 15px;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    overflow: hidden;
+    &:hover{
+      text-shadow: 30px 30px 8.4rem $mainColor2;
+    }
+  }
+}
+@media only screen and (max-width: 1050px){
+  .homePage2{
+    text-align: center;
+    .options{
+      display: none;
+    }
+    .btnListCard{
+      display: block;
+    }
+  }
+}
+
+
+// ---------- home video -------
+
+.videoBtn{
+  position: relative;
+  overflow: hidden;
+  height: 350px;
+  width: 90%;
+  border-radius: 40px;
+  img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    left: 0;
+    top: 0;
+  }
+  .icon{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 130px 0;
+    cursor: pointer;
+    z-index: 3;
+    .icona{
+      animation: bubble 1.4s infinite alternate;
+      font-size: 6rem;
+      color: #fff;
+      width: 100px;
+    }
+  }
+}
+@keyframes bubble {
+  to {
+    filter: drop-shadow(0 0 2.4rem $mainColor2);
+  }
+}
+
+.videoPuperBox{
+  z-index: 29;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  left: 0;
+  top: 0;
+
+  .videoPuper{
+    position: fixed;
+    display: flex;
+    width: 50%;
+    border-radius: 30px;
+    z-index: 51;
+    margin: 20vh 25%;
+  }
+  .overVideo{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(18px);
+    z-index: 50;
+  }
+}
+@media only screen and (max-width: 750px){
+  .videoBtn{
+    width: 100%;
+  }
+  .videoPuperBox{
+    .videoPuper{
+      width: 90%;
+      margin: 20vh 5%;
+    }
+  }
+}

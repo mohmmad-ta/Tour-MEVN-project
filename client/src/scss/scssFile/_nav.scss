@@ -1,0 +1,49 @@
+@import "./_var.scss";
+
+.nav-po {
+  position: fixed;
+  backdrop-filter: blur(15px);
+  z-index: 122;
+  width: 100%;
+  transition: 0.3s;
+  text-align: center !important;
+  .iconNav{
+    border: none;
+    &:focus {
+      box-shadow: none;
+      border: none;
+    }
+  }
+  .navbar-brand{
+    font-size: 1.7rem;
+    .in{
+      color: $mainColor2;
+    }
+  }
+  .navText{
+    ul{
+      margin-left: auto;
+      li a {
+        font-size: 1.1rem;
+      }
+      li a.router-link-exact-active {
+        color: $mainColor2;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .nav-po {
+    .navbar-brand{
+      margin: 0 auto;
+    }
+    .navText{
+      ul{
+        li a {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
